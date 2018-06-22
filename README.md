@@ -86,6 +86,7 @@ Instructions to open this project on a physical device:
 
    Logout from exp.host
 
+More Scripts in [here](https://docs.expo.io/versions/latest/workflow/exp-cli)
 
 
 ## Demo
