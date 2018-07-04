@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button, Switch } from 'react-native';
+import {
+   ScrollView,
+   View,
+   Text,
+   StyleSheet,
+   Button,
+   Switch,
+   Dimensions
+} from 'react-native';
 import RiskToleranceScore from '../components/RiskToleranceScore';
 import Chart from '../components/Chart';
 import TablePortfolio from '../components/TablePortfolio';
+import { riskSelectorScreenStyles }  from '../styles';
 
 class RiskSelectorScreen extends Component {
    static navigationOptions = ({ navigation }) => ({
@@ -22,47 +31,40 @@ class RiskSelectorScreen extends Component {
    });
 
    state = {
-      showChart: false
+      showChart: false,
+      changeOnWidth: false
+   }
+
+   onLayout = (e) => {
+      this.setState({ changeOnWidth: !this.state.changeOnWidth })
    }
 
    render() {
       return (
-         <View style={styles.containerStyle} >
+         <ScrollView
+            style={riskSelectorScreenStyles.containerStyle}
+            contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+            onLayout={this.onLayout}
+         >
             <RiskToleranceScore />
-            <View style={styles.switchContainerStyle}>
+            <View style={riskSelectorScreenStyles.switchContainerStyle}>
                <Text>Table</Text>
                <Switch
-                  style={styles.switchStyle}
+                  style={riskSelectorScreenStyles.switchStyle}
                   onTintColor='blue'
                   tintColor='green'
                   onValueChange={() => this.setState({ showChart: !this.state.showChart })}
                   value={this.state.showChart}
                />
-               <Text> Graph </Text>
+               <Text> Chart </Text>
             </View>
 
             { !this.state.showChart ? <TablePortfolio /> :
             <Chart /> }
 
-         </View>
+         </ScrollView>
       );
    }
 }
-
-const styles = StyleSheet.create({
-   containerStyle: {
-      flex: 1,
-   },
-   switchStyle: {
-      marginLeft: 10,
-      marginRight: 10
-   },
-   switchContainerStyle: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 20
-   }
-});
 
 export default RiskSelectorScreen;

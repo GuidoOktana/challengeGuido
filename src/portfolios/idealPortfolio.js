@@ -26,7 +26,7 @@ export const initialUserPortfolio = [
 export const defaultPortfolioTableDetails = [
   {
     'Risk': 1,
-    'Bonds': { key: 0, value: 80, label: 'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 80, label: 'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 20, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 0, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 0, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -34,7 +34,7 @@ export const defaultPortfolioTableDetails = [
  },
  {
     'Risk': 2,
-    'Bonds': { key: 0, value: 70, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 70, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 15, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 15, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 0, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -42,7 +42,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 3,
-    'Bonds': { key: 0, value: 60, label: 'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 60, label: 'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 15, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 15, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 10, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -50,15 +50,15 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 4,
-    'Bonds': { key: 0, value: 50, label:  'Bonds', svg: { fill: '#ce3eab' } },
-    'Large Cap %': { key: 1, value: 2, label: 'Large Cap %', svg: { fill: 'skyblue' } },
+    'Bonds': { key: 0, value: 50, label:  'Bonds %', svg: { fill: '#ce3eab' } },
+    'Large Cap %': { key: 1, value: 20, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 20, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 10, label: 'Foreign %', svg: { fill: 'salmon' } },
     'Small Cap %': { key: 4, value: 0, label: 'Small Cap %', svg: { fill: '#60C36E' } }
   },
   {
     'Risk': 5,
-    'Bonds': { key: 0, value: 40, label: 'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 40, label: 'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 20, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 20, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 20, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -66,7 +66,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 6,
-    'Bonds': { key: 0, value: 35, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 35, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 25, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 5, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 30, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -74,7 +74,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 7,
-    'Bonds': { key: 0, value: 20, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 20, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 25, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 25, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 25, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -82,7 +82,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 8,
-    'Bonds': { key: 0, value: 10, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 10, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 20, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 40, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 20, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -90,7 +90,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 9,
-    'Bonds': { key: 0, value: 5, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 5, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 15, label: 'Large Cap %', svg: { fill: 'skyblue' }  },
     'Mid Cap %': { key: 2, value: 40, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 25, label: 'Foreign %', svg: { fill: 'salmon' } },
@@ -98,7 +98,7 @@ export const defaultPortfolioTableDetails = [
   },
   {
     'Risk': 10,
-    'Bonds': { key: 0, value: 0, label:  'Bonds', svg: { fill: '#ce3eab' } },
+    'Bonds': { key: 0, value: 0, label:  'Bonds %', svg: { fill: '#ce3eab' } },
     'Large Cap %': { key: 1, value: 5, label: 'Large Cap %', svg: { fill: 'skyblue' } },
     'Mid Cap %': { key: 2, value: 25, label: 'Mid Cap %', svg: { fill: 'orange' } },
     'Foreign %': { key: 3, value: 30, label: 'Foreign %', svg: { fill: 'salmon' } },

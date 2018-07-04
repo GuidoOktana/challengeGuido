@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { defaultPortfolioTable, portfolioTableHeader } from '../portfolios';
+import { tablePortfolioStyles } from '../styles';
 
 class TablePortfolio extends Component {
    renderTableHeader = () => {
       const header = portfolioTableHeader.map((item, index) =>
-         <Text key={index} style={[styles.rowCellStyle, styles.rowHeaderStyle]} >
+         <Text key={index} style={[tablePortfolioStyles.rowCellStyle, tablePortfolioStyles.rowHeaderStyle]} >
             {item}
          </Text>
       )
@@ -28,8 +29,8 @@ class TablePortfolio extends Component {
       let selected = this.props.risk === row.risk ? true : false;
       const rowToRender = rowFix.map((item, index) =>
             <Text
-               key={index} style={[styles.rowCellStyle, selected
-                  ? styles.selectedRowStyle : '']}
+               key={index} style={[tablePortfolioStyles.rowCellStyle, selected
+                  ? tablePortfolioStyles.selectedRowStyle : '']}
             >
                {item}
             </Text>
@@ -43,42 +44,13 @@ class TablePortfolio extends Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
+      <View style={tablePortfolioStyles.tablePortfolioContainerStyle}>
          {this.renderTableHeader()}
          {this.renderTableRows()}
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  containerStyle: {
-     marginTop: 30,
-     alignSelf: 'center',
-     minWidth: 360,
-     flex:1,
-     maxWidth: 800,
-   },
-   rowHeaderStyle: {
-      backgroundColor: 'skyblue',
-      fontSize: 12,
-      height: 25,
-      lineHeight: 25,
-   },
-   rowCellStyle: {
-      borderWidth: 1,
-      borderColor: 'black',
-      flex: 1,
-      height: 30,
-      fontSize: 18,
-      textAlign: 'center',
-      backgroundColor: '#c9c9c9',
-      lineHeight: 30,
-   },
-   selectedRowStyle: {
-      backgroundColor: 'rgba(0, 255, 0, 0.6)',
-   },
-});
 
 const mapStateToProps = ({ risk }) => {
    return {

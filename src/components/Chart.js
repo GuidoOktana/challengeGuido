@@ -1,14 +1,16 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { PieChart } from 'react-native-svg-charts';
 import { connect } from 'react-redux';
 import { Labels } from './ChartLabels';
 import { defaultPortfolioTableDetails } from '../portfolios';
 
+const window = Dimensions.get('window');
+
 class Chart extends Component {
    state = {
-      chartDate: []
+      chartData: []
    }
 
    componentDidMount() {
@@ -16,7 +18,7 @@ class Chart extends Component {
    }
 
    componentWillReceiveProps(newProps) {
-      if (this.props !== newProps) {
+      if (this.props.risk !== newProps.risk) {
          this.getCurrentRecomendationForChart(newProps.risk);
       }
    }
@@ -38,12 +40,18 @@ class Chart extends Component {
 
     render() {
         return (
-            <View >
+            <View
+               style={{
+               width: window.width  }}
+            >
                {!_.isEmpty(this.state.chartData) ?
                   <PieChart
-                     style={{ height: 400, marginTop: 10, marginBottom: 20 }}
+                     style={{ height: 400, width: '100%' }}
                      valueAccessor={({ item }) => item.value}
                      data={this.state.chartData}
+                     innerRadius={ 70 }
+                     outerRadius={ 140 }
+                     labelRadius={ 150 }
                   >
                      <Labels />
                   </PieChart>

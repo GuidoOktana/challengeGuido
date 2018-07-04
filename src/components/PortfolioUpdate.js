@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { defaultPortfolioTableDetails, initialUserPortfolio } from '../portfolios';
 import { TransfersBox } from './TransfersBox';
 import RiskSelectedTable from './RiskSelectedTable';
+import { portfolioUpdateStyles } from '../styles';
 
 class PortfolioUpdate extends Component {
    state = {
@@ -50,7 +51,6 @@ class PortfolioUpdate extends Component {
             const { total, recommendation, userPortfolio } = this.state;
             const userValue = userPortfolio[index].value;
             const recommendationValue = recommendation[index].value;
-
             const idealAmount = total * parseFloat(recommendationValue) / 100;
 
             if (parseFloat(userValue) !== idealAmount) {
@@ -68,7 +68,7 @@ class PortfolioUpdate extends Component {
                   difference: parseFloat(newDifference),
                   newAmount: parseFloat(newAmount) }
             } else {
-               return { ...item, difference: 0, newAmount: 0 }
+               return { ...item, difference: 0, newAmount: idealAmount }
             }
          }
       );
@@ -116,24 +116,24 @@ class PortfolioUpdate extends Component {
       const { recommendation, userPortfolio } = this.state;
 
       return (recommendation).map((investmentType, index) =>
-         <View style={styles.rowContainerStyle} key={index} >
-            <Text style={styles.labelStyle}>
+         <View style={portfolioUpdateStyles.rowContainerStyle} key={index} >
+            <Text style={portfolioUpdateStyles.labelStyle}>
                {investmentType.label.replace('%', '$')}
             </Text>
             <TextInput
-               style={styles.inputStyle}
+               style={portfolioUpdateStyles.inputStyle}
                value={String(userPortfolio[index].value)}
                onChangeText={text => this.onUpdateText(text, index)}
             />
             <TextInput
-               style={[ styles.inputStyle, userPortfolio[index].difference > 0 ?
-               styles.positiveValueStyle: userPortfolio[index].difference < 0 ?
-               styles.negativeValueStyle : { color: 'black' }
+               style={[ portfolioUpdateStyles.inputStyle, userPortfolio[index].difference > 0 ?
+               portfolioUpdateStyles.positiveValueStyle: userPortfolio[index].difference < 0 ?
+               portfolioUpdateStyles.negativeValueStyle : { color: 'black' }
                ]}
                editable={false}
                value={String(userPortfolio[index].difference)} />
             <TextInput
-               style={styles.inputStyle}
+               style={portfolioUpdateStyles.inputStyle}
                editable={false}
                value={String(userPortfolio[index].newAmount)} />
          </View>
@@ -158,17 +158,17 @@ class PortfolioUpdate extends Component {
 
    render() {
       return (
-         <View style={styles.containerStyle}>
-            <View style={styles.topViewStyle}>
+         <View style={portfolioUpdateStyles.portfolioUpdateContainerStyles}>
+            <View style={portfolioUpdateStyles.topViewStyle}>
                <RiskSelectedTable table={this.state.recommendation}/>
             </View>
 
-            <Text style={styles.textStyle} >
+            <Text style={portfolioUpdateStyles.textStyle} >
                Please Enter Your Current Portfolio:
             </Text>
 
-            <View style={styles.tableStyle}>
-               <View style={styles.headerTableStyle} >
+            <View style={portfolioUpdateStyles.tableStyle}>
+               <View style={portfolioUpdateStyles.headerTableStyle} >
                   <Text style={{ flex: 2, paddingLeft: 20 }}>Current Amount</Text>
                   <Text style={{ flex: 1 }}>Difference</Text>
                   <Text style={{ flex: 1 }}>New Amount</Text>
@@ -183,7 +183,7 @@ class PortfolioUpdate extends Component {
             />
 
             <TouchableOpacity
-               style={styles.buttonStyle}
+               style={portfolioUpdateStyles.buttonStyle}
                onPress={this.calculateTotal} >
                <Text style={{ fontSize: 20 }}> Rebalance </Text>
             </TouchableOpacity>
@@ -191,66 +191,6 @@ class PortfolioUpdate extends Component {
       );
    }
 }
-
-const styles = StyleSheet.create({
-   containerStyle: {
-      alignItems: 'center',
-   },
-   topViewStyle: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-   },
-   headerTableStyle: {
-      backgroundColor: '#f8f8f8',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: 40,
-   },
-   tableStyle: {
-      backgroundColor: 'white',
-      borderWidth: 1,
-   },
-   inputStyle: {
-      marginLeft: 3,
-      borderWidth: 1,
-      width: 80,
-      backgroundColor: 'white',
-      padding: 10,
-      borderRadius: 5,
-      color: 'black',
-   },
-   labelStyle: {
-      width: 100,
-   },
-   rowContainerStyle: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      margin: 10,
-   },
-   textStyle: {
-      fontSize: 20,
-      margin: 15,
-   },
-   buttonStyle: {
-      backgroundColor: 'skyblue',
-      width: 150,
-      height: 60,
-      margin: 20,
-      borderWidth: 1,
-      borderRadius: 6,
-      justifyContent: 'center',
-      alignItems: 'center',
-   },
-   positiveValueStyle: {
-      color: 'green',
-   },
-   negativeValueStyle: {
-      color: 'red',
-   },
-});
 
 const mapStateToProps = ({ risk }) => {
    return {

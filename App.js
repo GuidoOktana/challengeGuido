@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { createStackNavigator } from 'react-navigation';
@@ -22,10 +22,11 @@ const MainNavigator = createStackNavigator({
 });
 
 export default class App extends Component {
-  render() {
+
+   render() {
     return (
       <Provider store={store}>
-         <View style={styles.container}>
+         <View style={styles.container} >
             <MainNavigator />
          </View>
       </Provider>

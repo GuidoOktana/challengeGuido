@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import ButtonRiskSelector from './ButtonRiskSelector';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { riskToleranceScoreStyles } from '../styles';
 
 class RiskToleranceScore extends Component {
 
@@ -25,28 +26,19 @@ class RiskToleranceScore extends Component {
 
    render() {
       return (
-         <View style={styles.containerStyle}>
-            <Text style={styles.textStyle}> Please Select A Risk Level For Your Investment Portfolio: </Text>
+         <View
+            style={riskToleranceScoreStyles.riskToleranceScoreContainerStyle}
+         >
+            <Text
+               style={riskToleranceScoreStyles.riskToleranceScoreTextStyle}
+            >
+               Please Select A Risk Level For Your Investment Portfolio:
+            </Text>
             {this.renderButtons()}
          </View>
       );
    }
 }
-
-const styles = StyleSheet.create({
-   containerStyle: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      padding: 15,
-      justifyContent: 'center'
-   },
-   textStyle: {
-      fontSize: 18,
-      marginBottom: 10,
-      width: '100%',
-      textAlign: 'center',
-   },
-});
 
 const mapStateToProps = ({ risk }) => {
    return {
