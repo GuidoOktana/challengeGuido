@@ -32,11 +32,6 @@ class RiskSelectorScreen extends Component {
 
    state = {
       showChart: false,
-      changeOnWidth: false
-   }
-
-   onLayout = (e) => {
-      this.setState({ changeOnWidth: !this.state.changeOnWidth })
    }
 
    render() {
@@ -44,7 +39,6 @@ class RiskSelectorScreen extends Component {
          <ScrollView
             style={riskSelectorScreenStyles.containerStyle}
             contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
-            onLayout={this.onLayout}
          >
             <RiskToleranceScore />
             <View style={riskSelectorScreenStyles.switchContainerStyle}>
